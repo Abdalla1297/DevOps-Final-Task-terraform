@@ -1,6 +1,6 @@
 # DevOps-Final-Project-code
 ## CI/CD Pipeline To Deploy a backend app
- ##### steps: 
+##### steps: 
 0. images 
 ![](./pic/WhatsApp_Image_2023-02-15_at_11.37.40_PM.jpeg)
 ![](./pic/WhatsApp_Image_2023-02-15_at_11.38.44_PM.jpeg)
