@@ -1,9 +1,16 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: bakehouse
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
     app: bakehouse
   name: bakehouse
+  namespace: bakehouse
 spec:
   replicas: 1
   selector:
@@ -19,5 +26,5 @@ spec:
         name: bakehouse
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         resources: {}
