@@ -17,7 +17,7 @@ pipeline {
             steps {
                             withCredentials([file(credentialsId: 'accesscluster', variable: 'config')]) {
                           sh """
-                              sed -i 's/tag/${BUILD_NUMBER}/g' Deployment/python-deployment.yaml
+                              sed -i 's/tag/${BUILD_NUMBER}/g' Deployment/deployment.yaml
                               gcloud auth activate-service-account --key-file=${config}
                               gcloud container clusters get-credentials private-standerd-gke-cluster --zone us-central1-b --project abdallah-iti-377721
                               kubectl apply -f Deployment
