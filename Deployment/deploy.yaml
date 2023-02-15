@@ -26,5 +26,5 @@ spec:
         name: bakehouse
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         resources: {}
