@@ -19,7 +19,6 @@ pipeline {
         stage('deploy') {
             steps {
                 script {
-                    if (params.ENV == "dev" || params.ENV == "test" || params.ENV == "prod") {
                             withCredentials([file(credentialsId: 'kubernetes_kubeconfig', variable: 'KUBECONFIG')]) {
                           sh """
                               export BUILD_NUMBER=\$(cat ../bakehouse-build-number.txt)
@@ -32,5 +31,4 @@ pipeline {
                     }
                 }
             }
-        }
 }
