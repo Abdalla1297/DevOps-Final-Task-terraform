@@ -21,6 +21,7 @@ $ gcloud container clusters get-credentials private-standerd-gke-cluster --zone 
 $ kubectl apply -f Deployment
 ```
 #### 4. Trigger WebHook on github to Deploy with any push
+![](./pic/Screenshot%20from%202023-02-15%2023-10-01.png)
 ### Finally: Destroy
 ```bash
 $ terraform destroy
