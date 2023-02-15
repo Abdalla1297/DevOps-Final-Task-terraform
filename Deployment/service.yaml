@@ -6,13 +6,10 @@ metadata:
   name: myservice
   namespace: bakehouse
 spec:
+  type: LoadBalancer
   ports:
-  - name: bakehouseport
-    port: 85
-    protocol: TCP
-    targetPort: 80
+   - port: 85
+     protocol: TCP
+     targetPort: 80
   selector:
     app: bakehouse
-  type: LoadBalancer
-status:
-  loadBalancer: {}
