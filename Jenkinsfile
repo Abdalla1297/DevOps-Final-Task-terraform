@@ -1,13 +1,9 @@
 pipeline {
-    agent { label 'jenkins-ubuntu-slave' }
-    parameters {
-        choice(name: 'ENV', choices: ['dev', 'test', 'prod',"release"])
-    } 
+    agent  any  
     stages {
         stage('build') {
             steps {
-                script {
-                   if (params.ENV == "release") {
+                scrip{
                        withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                            sh """
                                 docker login -u $USERNAME -p $PASSWORD
@@ -37,5 +33,4 @@ pipeline {
                 }
             }
         }
-    }
 }
