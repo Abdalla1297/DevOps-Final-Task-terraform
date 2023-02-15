@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                scrip{
                        withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                            sh """
                                 docker login -u $USERNAME -p $PASSWORD
@@ -14,10 +13,8 @@ pipeline {
                        }
                     }
                 }
-            }
         stage('deploy') {
             steps {
-                script {
                             withCredentials([file(credentialsId: 'accesscluster', variable: 'config')]) {
                           sh """
                               export BUILD_NUMBER=\$(cat ../bakehouse-build-number.txt)
@@ -32,5 +29,4 @@ pipeline {
                     }
                 }
         }
-    }
 }
